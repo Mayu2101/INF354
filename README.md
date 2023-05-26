@@ -1,5 +1,7 @@
 # TakeALittleAssignment
 
+[Homework Assignment 1 - Instructions.pdf](https://github.com/Mayu2101/INF354_Assignment1/files/11573761/Homework.Assignment.1.-.Instructions.pdf)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
 ## Development server
