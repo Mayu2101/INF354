@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="driverDetailsForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3 mt-3">
+                            <label for="name" class="form-label">Full Name:</label>
+                            <input type="text" class="form-control" placeholder="Your Name" formControlName="name" 
+                                            [ngClass]="{ 'is-invalid': submitted && driverDetailsForm.get('name')!.errors, 
+                                                         'is-valid': driverDetailsForm.get('name')!.touched && !driverDetailsForm.get('name')!.errors }">
+                            <div *ngIf="submitted && driverDetailsForm.get('name')!.hasError('required')" class="invalid-feedback">
+                                Please Enter Name
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="identity" class="form-label">ID Number:</label>
+                            <input type="text" class="form-control" placeholder="Your ID Number" formControlName="idnumber" 
+                                                [ngClass]="{ 'is-invalid': submitted && driverDetailsForm.get('idnumber')!.errors, 
+                                                        'is-valid': driverDetailsForm.get('idnumber')!.touched && !driverDetailsForm.get('idnumber')!.errors }">    
+                            <div *ngIf="submitted" class="invalid-feedback">
+                                <div *ngIf="driverDetailsForm.get('idnumber')!.hasError('required')">
+                                    Please Enter ID Number
+                                </div>
+                                <div *ngIf="!driverDetailsForm.get('idnumber')!.hasError('required') && driverDetailsForm.get('idnumber')!.hasError('validIdNumber')">
+                                    Entered ID Number Is Not Valid
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="otp" class="form-label">One Time Pin:</label>
+                            <input type="text" class="form-control" placeholder="One Time Pin" formControlName="otp" 
+                                                [ngClass]="{ 'is-invalid': submitted && driverDetailsForm.get('otp')!.errors, 
+                                                        'is-valid': driverDetailsForm.get('otp')!.touched && !driverDetailsForm.get('otp')!.errors }">        
+                            <div *ngIf="submitted && driverDetailsForm.get('otp')!.hasError('required')" class="invalid-feedback">
+                                Please Enter OTP
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Next</button>
+                        <p style="padding-top: 50px; font-size:x-small;">By clicking next, I agree that the above information is accurate.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3 mt-3">
+                            <div style="text-align: center;">
+                                <label id="fileSelectionLabel" for="fileSelection" class="form-label">{{fileSelectionLabel}}</label>
+                            </div>
+                            <input type="file" class="form-control" (change)="onFileSelect($event)">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br>
+            <div *ngIf="file1.image || file2.image" style="text-align: center;">
+                {{pictureLabel}}
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+    <br>
+    <div class="row">        
+        <div class="col" >
+            <div class="card" *ngIf="file1.image" >
+                <img src={{file1.image}} class="card-img-top" style="object-fit: contain; height: 250px;">
+                <div class="card-body">
+                  <h5 class="card-title">{{file1.fileName | extensionPipe}}</h5>
+                  <p class="card-text">Uploaded at: {{file1.dateTime | date: 'medium'}}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col">
+            <div class="card" *ngIf="file2.image">
+                <img src={{file2.image}} class="card-img-top" style="object-fit: contain; height: 250px;">
+                <div class="card-body">
+                  <h5 class="card-title">{{file2.fileName | extensionPipe}}</h5>
+                  <p class="card-text">Uploaded at: {{file2.dateTime | date: 'medium'}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
